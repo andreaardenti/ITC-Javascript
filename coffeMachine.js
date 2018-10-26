@@ -36,6 +36,7 @@ function money(value) {
     }
     return size;
 }
+
 let a = 2541;
 let b = -2541
 console.log("---- Stampa del JSON positivo ----\n", money(a));
