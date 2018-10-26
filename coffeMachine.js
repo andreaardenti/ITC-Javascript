@@ -1,6 +1,11 @@
 function money(value) {
+    
+    //inizializzo l'oggetto JSON
     let size = { "500": 0, "200": 0, "100": 0, "50": 0, "20": 0, "10": 0, "5": 0, "2": 0, "1": 0 };
+    
+    //imposto che il numero inserito sia positivo, altrimenti visualizzo messaggio di errore
     if (value > 0) {
+        //controllo che sia diverso da zero e faccio partire il controllo
         while (value != 0) {
             if (value % 500 === 0) {
                 size["500"]++;
