@@ -5,9 +5,9 @@ let crypt = function(stringaDaCriptare) {
     let stringSplitted = stringaDaCriptare.split("");
     //console.log(stringSplitted);
     let result = [];
-    for (i in stringSplitted) {
+    for (let i in stringSplitted) {
         //console.log(stringSplitted[i]);
-        for (j in alphabet) {
+        for (let j in alphabet) {
             //console.log(alphabet[j]);
             if (alphabet[j] === stringSplitted[i]) {
                 result += `${alphabet.indexOf(alphabet[j])}.`; //template string
@@ -24,32 +24,17 @@ let crypt = function(stringaDaCriptare) {
 
 
 function uncrypt(stringToUncrypt) {
-    let temp = new Array();
-    temp = stringToUncrypt.split(".");
-    for (let i = 0; i < temp.length; i++) {
-        //console.log('Questa è la stringa senza il PUNTO: ' + temp[i]);
-    }
-
-    //console.log('contenuto di temp: ' + temp);
-    let result = [];
-    //console.log('contenuto di result: ' + result);
-
-    for (let j in temp) {
-        //console.log('siamo dentro let j in temp:' + temp[j]);
-        for (let x in alphacode) {
-            //console.log('siamo dentro let x in alphacode:' + alphacode);
-            for (let z in alphabet) {
-                if (temp[j] === alphacode[x]) {
-                    alphacode[x] = alphabet[z];
-                    //console.log('contenuto di alphabet [z]: ' + alphabet[z]);
-                    result += alphabet[parseInt(j)];
-                }
-            }
+    let response = '';
+    let array = stringToUncrypt.split(".");
+    for (let index of array) {
+        if (index === '_') {
+            response += ' ';
+        } else if (alphabet[index]) {
+            response += alphabet[index];
         }
-    }
-    return 'Stringa de-crittata: ' + result;
+    } return response;
 }
 console.log('\n----------CRYPT/UNCRYPT----------')
 console.log(crypt('andrea'));
-console.log(uncrypt('0.1'));
+console.log(uncrypt('0.13.3.17.4.0.'));
 console.log('\n')
