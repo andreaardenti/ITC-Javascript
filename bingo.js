@@ -1,6 +1,6 @@
 //riempio l'array con i numeri da 1 a 90
 let bingoBag = [];
-for (i=1; i<91; i++) {
+for (let i=1; i<91; i++) {
     bingoBag.push(i);
 }
 
