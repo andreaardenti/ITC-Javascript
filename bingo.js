@@ -25,6 +25,7 @@ console.log('quello che resta di bingobag: ' + bingoBag.length);
 console.log('contenuto bingoBag: ' + bingoBag);
 */
 
+//------------------------------------------------------------------------------------
 //SECONDA VERSIONE - ESTRAZIONE PARAMETRIZZATA
 
 //riempio l'array con i numeri da 1 a 90
