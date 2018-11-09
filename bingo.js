@@ -1,3 +1,5 @@
+/*
+PRIMA VERSIONE
 //riempio l'array con i numeri da 1 a 90
 let bingoBag = [];
 for (let i=1; i<91; i++) {
@@ -21,3 +23,27 @@ exports.fillArray = function() {
 console.log('Contenuto array con i numeri estratti: ' + this.fillArray());
 console.log('quello che resta di bingobag: ' + bingoBag.length);
 console.log('contenuto bingoBag: ' + bingoBag);
+*/
+
+//SECONDA VERSIONE - ESTRAZIONE PARAMETRIZZATA
+
+//riempio l'array con i numeri da 1 a 90
+let bingoBag = [];
+for (let i = 1; i < 91; i++) {
+    bingoBag.push(i);
+}
+
+exports.fillArray = function(param) {    
+    let filteredItems = [];
+    for (let i = 0; i < param; i++) {
+        extracted = parseInt(Math.random() * bingoBag.length) + 1;
+        //console.log('numero a caso da 1 a 90: ' + extracted);
+        filteredItems[i] = (bingoBag.splice(extracted - 1, 1));
+    }
+    //console.log(typeof filteredItems);
+    console.log('Lunghezza di filteredItems: ' + filteredItems.length);
+    return filteredItems;
+}
+console.log('Contenuto array con i numeri estratti: ' + this.fillArray(45));
+console.log('Lunghezza di bingobag: ' + bingoBag.length);
+console.log('Contenuto bingoBag: ' + bingoBag);
