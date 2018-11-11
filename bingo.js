@@ -34,7 +34,8 @@ for (let i = 1; i < 91; i++) {
     bingoBag.push(i);
 }
 
-exports.fillArray = function(param) {    
+exports.fillArray = function(param) {
+    //console.log('numero a caso da 1 a 90: ' + extracted);
     let filteredItems = [];
     for (let i = 0; i < param; i++) {
         extracted = parseInt(Math.random() * bingoBag.length) + 1;
@@ -42,9 +43,10 @@ exports.fillArray = function(param) {
         filteredItems[i] = (bingoBag.splice(extracted - 1, 1));
     }
     //console.log(typeof filteredItems);
-    console.log('Lunghezza di filteredItems: ' + filteredItems.length);
+    //console.log('Lunghezza di filteredItems: ' + filteredItems.length);
     return filteredItems;
 }
-console.log('Contenuto array con i numeri estratti: ' + this.fillArray(45));
+
+console.log('Contenuto array con i numeri estratti: ' + this.fillArray(5));
 console.log('Lunghezza di bingobag: ' + bingoBag.length);
 console.log('Contenuto bingoBag: ' + bingoBag);
