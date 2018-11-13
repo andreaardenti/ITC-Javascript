@@ -34,19 +34,26 @@ for (let i = 1; i < 91; i++) {
     bingoBag.push(i);
 }
 
+let filteredItems = [];
+
 exports.fillArray = function(param) {
-    //console.log('numero a caso da 1 a 90: ' + extracted);
-    let filteredItems = [];
+    if (param === undefined && (typeof param !== 'number' || param < 0)) return 'Param deve essere un numero positivo';
     for (let i = 0; i < param; i++) {
         extracted = parseInt(Math.random() * bingoBag.length) + 1;
-        //console.log('numero a caso da 1 a 90: ' + extracted);
         filteredItems[i] = (bingoBag.splice(extracted - 1, 1));
     }
-    //console.log(typeof filteredItems);
-    //console.log('Lunghezza di filteredItems: ' + filteredItems.length);
     return filteredItems;
+}
+
+exports.reset = function(){
+    bingoBag = [];
+    filteredItems = [];
 }
 
 console.log('Contenuto array con i numeri estratti: ' + this.fillArray(5));
 console.log('Lunghezza di bingobag: ' + bingoBag.length);
 console.log('Contenuto bingoBag: ' + bingoBag);
+console.log('--- Ora resetto gli array! ---');
+this.reset();
+console.log('Lunghezza di bingobag: ' + bingoBag.length);
+console.log('Lunghezza di filteredItems: ' + filteredItems.length);
