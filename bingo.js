@@ -29,7 +29,7 @@ console.log('contenuto bingoBag: ' + bingoBag);
 //SECONDA VERSIONE - ESTRAZIONE PARAMETRIZZATA
 
 //riempio l'array con i numeri da 1 a 90
-let bingoBag = [];
+/*let bingoBag = [];
 for (let i = 1; i < 91; i++) {
     bingoBag.push(i);
 }
@@ -56,4 +56,57 @@ console.log('Contenuto bingoBag: ' + bingoBag);
 console.log('--- Ora resetto gli array! ---');
 this.reset();
 console.log('Lunghezza di bingobag: ' + bingoBag.length);
-console.log('Lunghezza di filteredItems: ' + filteredItems.length);
+console.log('Lunghezza di filteredItems: ' + filteredItems.length);*/
+
+
+let bingoUse = require('bingo-extract');
+//let player = [];
+
+//riempio il sacchetto del bingo
+bingoUse.init(); 
+
+//assegno 'n' numeri al player
+let numberToPlayer = function() {
+    let player = [];
+    for (i=0; i<15; i++) {
+        let x = bingoUse.extract();
+        player.push(x);
+    } 
+    return player;
+}
+
+//console.log('\nCartella di player:\n' + numberToPlayer() + '\n');
+console.log(numberToPlayer());
+
+bingoUse.init(); 
+
+//creo la funzione che estrae un numero dal sacchetto e verifica se il numero estratto è presente nella cartella del player, 
+//quindi lo rimuovo dalla cartella
+function checkNumber() {
+    let counter=0;
+    do {
+        let y = bingoUse.extract();
+        console.log('Numero estratto: ' + y);        
+        if(numberToPlayer().includes(y)) {
+            let toRemove = numberToPlayer().indexOf(y);
+            if (toRemove > -1) {
+                numberToPlayer().splice(toRemove, 1);
+            }
+            console.log('Nuovo contenuto di player: ' + numberToPlayer());
+            console.log('Il numero è presente nella tua cartella\n');
+        }   
+        else {
+            console.log('Il numero NON è presente nella tua cartella\n');
+        }
+        counter++;
+    } while (numberToPlayer().length >= 1);
+    console.log("Nr. estrazioni: ", counter);
+    return numberToPlayer();
+}
+checkNumber();
+
+let player1 = numberToPlayer();
+let player2 = numberToPlayer();
+
+console.log('cartella di player1: ' + player1);
+console.log('cartella di player2: ' + player2);
