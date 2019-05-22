@@ -39,4 +39,4 @@ function rollDice(value) {
     console.log('Contatore per SEI: ' + counter6);
 }
 
-console.log(rollDice(100));
+console.log(rollDice(5));

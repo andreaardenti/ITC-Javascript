@@ -32,7 +32,7 @@ function uncrypt(stringToUncrypt) {
         } else if (alphabet[index]) {
             response += alphabet[index];
         }
-    } return response;
+    } return 'Sequenza decrittata: ' + response;
 }
 console.log('\n----------CRYPT/UNCRYPT----------')
 console.log(crypt('andrea'));

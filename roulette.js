@@ -5,23 +5,27 @@ function extractNumber(value) {
     for (let i=0; i<value; i++) {
         extractedFunction.push((Math.floor(Math.random() * 36) + 1));
     }
-    console.log(extractedFunction);
+    //console.log('extractedFunction: ' + extractedFunction);
+    return extractedFunction;
 }
 
-let extracted = extractNumber(6);
-console.log (extracted);
+let extracted = extractNumber(10);
+console.log ('extracted: ' + extracted);
 
 function play(array) {
     if (array instanceof Array) {
-        //console.log(array.length);
-        for (let i=0; i<array; i++) {
-            for (let j=0; j<extracted; j++) {  
+        //console.log('tot numeri giocati: ' + array.length);
+        for (let i in array) {
+            for (let j in extracted) {  
                 if (array[i] === extracted[j]) {
-                console.log('ciao'); 
+                    console.log('matching:' + extracted[j]); 
                 }
             }
         }
-    } else return 'error';
+    } else return 'no match';
 }
-let myPlay = [1,2,3,4,5,6,7,8,9,10]
-console.log(play(myPlay));
+
+let myPlay = [1,2,3,4,5,6,7,8,9,10];
+let game = play(myPlay);
+
+console.log(game);
